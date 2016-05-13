@@ -1,7 +1,0 @@
-{
-	"name":"add_angular2",
-	"description":"An address book app for Angular 2 showing user registration, user login, and CRUD.",
-	"type": 1,
-	"path": "/add_angular2/index.html",
-	"is_active": true
-}

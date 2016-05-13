@@ -1,9 +1,9 @@
 {
-  "name": "angular2-sdk",
+  "name": "angular2-auth-component",
   "version": "0.0.0",
-  "description": "Sample dreamfactory addressbook in angular2",
+  "description": "Dreamfactory auth component in angular2",
   "repository": {
-    "url": "https://github.com/dreamfactorysoftware/angular2-sdk"
+    "url": "https://github.com/dreamfactorysoftware/angular2-auth-component"
   },
   "scripts": {
     "build.dev": "gulp build.dev",
