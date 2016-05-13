@@ -1,0 +1,10 @@
+<section class="sample-app-content">
+  <nav [hidden]="hideHeader">
+    <a (click)="logout()">Logout</a>
+    <a [routerLink]="['/Home']">Profile</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <h1>Welcome!</h1>
+</section>
