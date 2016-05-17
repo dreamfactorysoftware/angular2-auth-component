@@ -9,8 +9,7 @@
   color: #990000;
   font-size: 2em;
 }
-.sample-app-content p,
-.sample-app-content nav {
+.sample-app-content p {
   padding: 30px;
 }
 .sample-app-content li,
@@ -35,5 +34,13 @@
   min-width: 35px;
 }
 
+.navbar-default {
+  padding: 0;
+}
+
+
+.dropdown-toggle {
+  cursor: pointer;
+}
 
 

@@ -1,10 +1,26 @@
 <section class="sample-app-content">
-  <nav [hidden]="hideHeader">
-    <a (click)="logout()">Logout</a>
-    <a [routerLink]="['/Home']">Profile</a>
+
+	<nav class="navbar navbar-default" [hidden]="hideHeader">
+	  <div class="container-fluid">
+	    <div class="navbar-header pull-right">
+	    	<ul class="nav navbar-nav navbar-right">
+		        <li class="dropdown" [ngClass]="{open: showDd}">
+		          <a class="dropdown-toggle" (click)="expandDd()">
+		          	{{ profile.name }} <span class="caret"></span>
+		          </a>
+		          <ul class="dropdown-menu">
+		          	<li><a [routerLink]="['/Home']">Profile</a></li>
+	      			<li><a (click)="logout()">Logout</a></li>
+		          </ul>
+		        </li>
+		    </ul>
+	    	
+	    </div>
+	  </div>
+	</nav>
+  <nav >
   </nav>
 
-  <router-outlet></router-outlet>
-
-  <h1>Welcome!</h1>
+  <router-outlet>
+  </router-outlet>
 </section>
