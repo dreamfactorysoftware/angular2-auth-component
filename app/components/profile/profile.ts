@@ -9,11 +9,15 @@ import {ProfileService} from '../../services/profile';
 
 import * as constants from '../../config/constants';
 
+import {
+	ROUTER_DIRECTIVES
+} from 'angular2/router';
+
 @Component({
 	selector: 'profile',
 	templateUrl: './components/profile/profile.html',
 	providers: [BaseHttpService, ProfileService],
-	directives: [FORM_DIRECTIVES]
+	directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 
 export class ProfileCmp {

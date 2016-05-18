@@ -7,6 +7,7 @@ import {
 
 import {HomeCmp} from '../home/home';
 import {LoginCmp} from '../login/login';
+import {ProfileCmp} from '../profile/profile';
 import {RegisterCmp} from '../register/register';
 
 import {BaseHttpService} from '../../services/base-http';
@@ -24,6 +25,7 @@ import {Profile} from '../../models/profile';
 })
 @RouteConfig([
   { path: '/home', component: HomeCmp, as: 'Home' },
+  { path: '/profile', component: ProfileCmp, as: 'Profile' },
   { path: '/login', component: LoginCmp, as: 'Login' },
   { path: '/register', component: RegisterCmp, as: 'Register' }
 ])
