@@ -1,4 +1,4 @@
-Dreamfactory Angular2 Auth Component
+DreamFactory Angular2 Auth Component
 ====================================
 
 This repo contains a sample auth component for dreamfactory written in Angular2.

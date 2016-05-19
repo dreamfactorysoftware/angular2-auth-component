@@ -6,10 +6,12 @@ import {HTTP_PROVIDERS, Http, RequestOptions} from 'angular2/http';
 import {AppCmp} from './components/app/app';
 import {DfRequestOptions} from './config/interceptors';
 import {CustomExceptionHandler} from './config/exception-handler';
+import {ProfileService} from './services/profile';
 
 bootstrap(AppCmp, [
 		ROUTER_PROVIDERS,
 		HTTP_PROVIDERS,
+		ProfileService,
 		provide(LocationStrategy, { useClass: HashLocationStrategy }),
 		provide(RequestOptions, { useClass: DfRequestOptions }),
 		provide(ExceptionHandler, { useClass: CustomExceptionHandler }),

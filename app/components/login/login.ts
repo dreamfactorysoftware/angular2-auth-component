@@ -47,11 +47,11 @@ export class LoginCmp {
 			reset: true
 		};
 
-		this.httpService.http.post(constants.DSP_INSTANCE_URL + '/api/v2/system/admin/password', JSON.stringify(doc))
+		this.httpService.http.post(constants.DSP_INSTANCE_URL + '/api/v2/system/admin/password?reset=true', JSON.stringify(doc))
 			.subscribe((data) => {
 				alert('A password reset email has been sent to the provided email address.');
 			}, (error) => {
-				this.httpService.http.post(constants.DSP_INSTANCE_URL + '/api/v2/user/password', JSON.stringify(doc))
+				this.httpService.http.post(constants.DSP_INSTANCE_URL + '/api/v2/user/password?reset=true', JSON.stringify(doc))
 					.subscribe((data) => {
 						alert('A password reset email has been sent to the provided email address.');
 					}, (error) => {

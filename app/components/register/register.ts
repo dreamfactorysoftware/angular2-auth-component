@@ -15,7 +15,7 @@ import * as constants from '../../config/constants';
 export class RegisterCmp {
 	form: ControlGroup;
 
-	constructor (private httpService: BaseHttpService, private formBuilder: FormBuilder, private router: Router) {
+	constructor (private httpService: BaseHttpService, private formBuilder: FormBuilder, private _router: Router) {
 		this.form = formBuilder.group({
 			first_name: new Control('', Validators.required),
 			last_name: new Control(''),
@@ -27,13 +27,15 @@ export class RegisterCmp {
 	private storeToken(data) {
 		this.httpService.http._defaultOptions.headers.set('X-Dreamfactory-Session-Token', data && data.session_token);
 		localStorage.setItem('session_token', data.session_token);
+		this._router.navigate(['Home']);
 	}
 
 	register () {
+		var self = this;
 		this.httpService.http
 			.post(constants.DSP_INSTANCE_URL + '/api/v2/user/register?login=true', JSON.stringify(this.form.value))
 			.subscribe((response) => {
-				this.storeToken(response.json());
+				self.storeToken(response.json());
 			}, (error) => {
 				alert('Error, cannot register. Try again')
 			});

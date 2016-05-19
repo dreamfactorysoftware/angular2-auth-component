@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from 'angular2/core';
+import {Component, ViewEncapsulation, OnInit} from 'angular2/core';
 import {
   Router,
   RouteConfig,
@@ -29,11 +29,15 @@ import {Profile} from '../../models/profile';
   { path: '/login', component: LoginCmp, as: 'Login' },
   { path: '/register', component: RegisterCmp, as: 'Register' }
 ])
-export class AppCmp {
+export class AppCmp implements OnInit{
 
   hideHeader: boolean = false;
   profile: Profile = new Profile();
   showDd: Boolean = false;
+
+  ngOnInit() {
+    this._router.navigate(['/Home']);
+  }
   
   constructor (private httpService: BaseHttpService, private _router:Router, private profileService: ProfileService) {
     var self = this;
@@ -45,11 +49,9 @@ export class AppCmp {
       }
     });
 
-    this.profileService
-      .get()
-      .subscribe((data) => {
-        self.profile = data;
-      });
+    ProfileService.$$profileUpdated.subscribe((profile) => {
+      self.profile = profile;
+    });
   }
 
   logout () {
@@ -58,7 +60,7 @@ export class AppCmp {
     this._router.navigate(['Login']);
   }
 
-  expandDd () {
+  toggleDd () {
     this.showDd = !this.showDd;
   }
 }

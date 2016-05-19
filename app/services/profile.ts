@@ -5,6 +5,7 @@ import * as constants from '../config/constants';
 import {BaseHttpService} from './base-http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
 
 class ServerResponse {
 	constructor(public resource: any) {
@@ -15,21 +16,28 @@ class ServerResponse {
 export class ProfileService {
 	baseResourceUrl: string = constants.DSP_INSTANCE_URL + '/api/v2/user/profile'; 
 	resetPasswordUrl: string = constants.DSP_INSTANCE_URL + '/api/v2/user/password?login=false&reset=true';
-	constructor(private httpService: BaseHttpService) {
 
+	static $$profileUpdated: Subject<Profile> = new Subject<Profile>();
+
+	constructor(private httpService: BaseHttpService) {
 	};
 
 	get(): Observable<Profile> {
+		var self = this;
 		return this.httpService.http
 			.get(this.baseResourceUrl)
 			.map((response) => {
-				return Profile.fromJson(response.json());
+				var profile = Profile.fromJson(response.json());
+				ProfileService.$$profileUpdated.next(profile);
+				return profile;
 			});
 	};
 
 	save(profile: Profile): Observable<any> {	
+		var self = this;
 		return this.httpService.http.post(this.baseResourceUrl, profile.toJson(true))
 			.map((response) => {
+				ProfileService.$$profileUpdated.next(profile);
 				return response;
 			});
 	};
