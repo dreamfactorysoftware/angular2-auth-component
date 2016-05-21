@@ -1,33 +1,5 @@
-.sample-app-content {
-  font-family: Verdana;
-}
-.sample-app-content h1 {
-  color: #999;
-  font-size: 3em;
-}
-.sample-app-content h2 {
-  color: #990000;
-  font-size: 2em;
-}
-.sample-app-content p {
-  padding: 30px;
-}
-.sample-app-content li,
-.sample-app-content p {
-  font-size: 1.2em;
-}
-.sample-app-content li {
-  font-family: Consolas;
-}
-.sample-app-content nav a {
-  display: inline-block;
-  margin-right: 15px;
-}
-.sample-app-content input,
-.sample-app-content button {
-  padding: 5px;
-  font-size: 1em;
-  outline: none;
+html {
+  font-size: 14px;
 }
 
 .fa-trash.btn-danger, .fa-edit.btn-success, .fa-plus {
@@ -41,6 +13,30 @@
 
 .dropdown-toggle {
   cursor: pointer;
+  background-color: transparent;
+  color: #fff;
 }
 
 
+.df-header {
+  background-color: #7093B5;
+  padding:10px;
+}
+
+.df-logo {
+  width: 175px;
+  height: 24px;
+}
+
+.h-centered {
+  text-align: center;
+}
+
+.h-centered *{
+  margin:auto;
+  margin-top: 5px;
+}
+
+.df-header .container-fluid {
+  width: 100%;
+}

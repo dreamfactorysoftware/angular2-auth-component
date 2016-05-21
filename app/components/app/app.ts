@@ -2,7 +2,8 @@ import {Component, ViewEncapsulation, OnInit} from 'angular2/core';
 import {
   Router,
   RouteConfig,
-  ROUTER_DIRECTIVES
+  ROUTER_DIRECTIVES,
+  Location
 } from 'angular2/router';
 
 import {HomeCmp} from '../home/home';
@@ -29,18 +30,19 @@ import {Profile} from '../../models/profile';
   { path: '/login', component: LoginCmp, as: 'Login' },
   { path: '/register', component: RegisterCmp, as: 'Register' }
 ])
-export class AppCmp implements OnInit{
+export class AppCmp {
 
   hideHeader: boolean = false;
   profile: Profile = new Profile();
   showDd: Boolean = false;
 
-  ngOnInit() {
-    this._router.navigate(['/Home']);
-  }
-  
-  constructor (private httpService: BaseHttpService, private _router:Router, private profileService: ProfileService) {
+  constructor (private httpService: BaseHttpService, private _router:Router, private profileService: ProfileService, private location: Location) {
     var self = this;
+
+    if (!this.location.path()) {
+      this._router.navigate(['/Home']);
+    }
+    
     _router.subscribe((path) => {
       if (path === 'login' || path === 'register') {
         self.hideHeader = true;

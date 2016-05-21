@@ -16,6 +16,7 @@ import {
 @Component({
 	selector: 'profile',
 	templateUrl: './components/profile/profile.html',
+	styleUrls: ['./components/profile/profile.css'],
 	providers: [BaseHttpService, ProfileService],
 	directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
