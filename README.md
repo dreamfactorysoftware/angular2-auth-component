@@ -33,6 +33,34 @@ To download and install DreamFactory, follow the instructions [here](http://wiki
     - Make sure Open Reg Email Service Id is blank, so that new users can register without email confirmation.
     - Save changes.
 
+#Include in your project
+```
+npm install angular2-auth-component
+```
+
+
+set config parameters in `window` scope like this:
+```
+window.instanceUrl = '<your dreamfactory instance url>';
+window.appKey = '<your dreamfactory app key>';
+```
+
+
+import angular2-auth-component dependencies in your main app component 
+```
+import {LoginCmp, ProfileCmp, RegisterCmp, Profile, ProfileService, BaseHttpService} from 'angular2-auth-component/index';
+```
+
+Include the login, register and profile routes as follows:
+```
+@RouteConfig([
+  { path: '/profile', component: ProfileCmp, as: 'Profile' },
+  { path: '/login', component: LoginCmp, as: 'Login' },
+  { path: '/register', component: RegisterCmp, as: 'Register' }
+])
+```
+
+
 
 #How develop the project on your local machine 
 
