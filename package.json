@@ -5,6 +5,11 @@
   "repository": {
     "url": "https://github.com/dreamfactorysoftware/angular2-auth-component"
   },
+  "main": "index.js",
+  "files": [
+    "df-auth",
+    "index.js"
+  ],
   "scripts": {
     "build.dev": "gulp build.dev",
     "build.dev.watch": "gulp build.dev.watch",

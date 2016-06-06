@@ -1,0 +1,37 @@
+<section class="sample-app-content">
+
+	<nav class="navbar navbar-default df-header">
+	  <div class="container-fluid">
+	  	<div class="navbar-header">
+	  		<a href="https://www.dreamfactory.com/">
+	  			<img class="df-logo" src="https://www.dreamfactory.com/sites/default/files/dreamfactory-logo-sm-horz-%402x.png"/>
+	  		</a>
+	  	</div>
+  		
+  		<div [hidden]="hideHeader">
+		    <div class="navbar-collapse collapse navbar-responsive-collapse pull-right" >
+		    	<ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown" [ngClass]="{open: showDd}">
+			          	<h5>
+					        <a class="dropdown-toggle" (click)="toggleDd()">
+				          		<span class="fa fa-fw fa-user"></span>
+				          		{{ profile.name }} 
+				        	</a>
+				        </h5>
+			          <ul class="dropdown-menu" (click)="toggleDd()">
+			          	<li><a [routerLink]="['/Profile']">Profile</a></li>
+		      			<li><a (click)="logout()">Logout</a></li>
+			          </ul>
+			        </li>
+			    </ul>
+		    	
+		    </div>
+		</div>
+	  </div>
+	</nav>
+  <nav >
+  </nav>
+
+  <router-outlet>
+  </router-outlet>
+</section>
