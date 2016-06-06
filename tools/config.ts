@@ -29,10 +29,10 @@ export const APP_SRC              = 'app';
 export const ASSETS_SRC           = `${APP_SRC}/assets`;
 
 export const TOOLS_DIR            = 'tools';
-export const TMP_DIR              = 'tmp';
+export const TMP_DIR              = 'df-auth';
 export const TEST_DEST            = 'test';
 export const DOCS_DEST            = 'docs';
-export const APP_DEST             = ENV === 'dev' ? `dist/${ENV}` : 'add_angular2';
+export const APP_DEST             = `dist/${ENV}`;
 export const ASSETS_DEST          = `${APP_DEST}/assets`;
 export const CSS_DEST             = `${APP_DEST}/css`;
 export const JS_DEST              = `${APP_DEST}/js`;
